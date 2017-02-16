@@ -1,0 +1,85 @@
+*altscreen.txt*            Alternate screen management                *altscreen*
+
+                              Altscreen MANUAL
+
+1. About altscreen                                 |altscreen-about|
+2. Quick Start                                     |altscreen-quickstart|
+3. Key Mappings and Commands                       |altscreen-keymappings|
+                                                   |altscreen-functions|
+4. Changelog                                       |altscreen-changelog|
+5. Contribute                                      |altscreen-contribute|
+6. License                                         |altscreen-license|
+
+=============================================================================
+1. ABOUT altscreen ~
+                                                              *altscreen-about*
+
+When you run vim in a terminal, the screen is erased and vim displays its
+windows, buffers etc. When you quit vim, what was previously on screen (eg.
+shell commands and ouput) is restored: your terminal handles this, and it is
+called _alternate screen_.
+
+Vim knows how ask your terminal to switch to alternate screen, but
+unfortunately it's on an all-or-nothing basis: either vim stays on it own
+screen and all command ouput goes elsewhere eg. your shell, or vim don't set
+alternate screen and it overwrites your screen, meaning you "lose" what was
+displayed before.
+
+Altscreen basically disables alternate screen once vim has started, so that
+external command output stays in the same screen, and restores alternate
+screen before quitting or suspending.
+
+=============================================================================
+2. QUICK START ~
+                                                         *altscreen-quickstart*
+
+1. Install the plugin Eg. with Pathogen:
+>
+   cd ~/.vim/bundle && git clone https://github.com/fcpg/vim-altscreen
+<
+2. Work as usual; when you run external commands like `:!ls`, the output stays
+   in the same screen.
+
+=============================================================================
+3. KEY MAPPINGS AND FUNCTIONS ~
+                                                        *altscreen-keymappings*
+
+- <C-z>
+  Remapped to call |AltScreenControlZ|().
+  Won't clobber and existing map.
+
+                                                          *altscreen-functions*
+
+*UnsetAltScreen*
+
+Turns off alternate screen management from vim.
+
+*SetAltScreen*
+
+Restores alternate screen management from vim.
+
+*AltScreenControlZ*
+
+Restores alternate screen management just before suspending, then turns it
+back when resuming vim.
+
+=============================================================================
+4. CHANGELOG ~
+                                                          *altscreen-changelog*
+
+[1.0] - 2017-02-16
+  - Initial release
+
+=============================================================================
+5. CONTRIBUTE ~
+                                                         *altscreen-contribute*
+
+Contribute on [Github](https://github.com/fcpg/vim-altscreen)
+
+=============================================================================
+6. LICENSE ~
+                                                            *altscreen-license*
+
+[Attribution-ShareAlike 4.0 Int.](https://creativecommons.org/licenses/by-sa/4.0/)
+
+ vim: set expandtab sts=2 ts=2 sw=2 tw=78 ft=help norl:
